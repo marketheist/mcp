@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "marketheist",
+  "version": "1.1.2",
+  "description": "Backtest strategies and analyze portfolios, incl. nested multi-strategy portfolios, on real data.",
+  "author": { "name": "MarketHeist", "email": "support@marketheist.io", "url": "https://marketheist.io" },
+  "homepage": "https://marketheist.io/docs/reference/mcp",
+  "repository": "https://github.com/marketheist/mcp",
+  "keywords": ["finance", "backtesting", "portfolio-analysis", "multi-strategy", "mcp"]
+}
