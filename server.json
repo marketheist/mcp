@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.marketheist/backtest",
+  "title": "MarketHeist Backtest",
+  "description": "Backtest strategies and analyze portfolios, incl. nested multi-strategy portfolios, on real data.",
+  "version": "1.1.2",
+  "icons": [
+    {
+      "src": "https://marketheist.io/portfolio/logo-400.png",
+      "mimeType": "image/png",
+      "sizes": ["400x400"]
+    },
+    {
+      "src": "https://marketheist.io/portfolio/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.marketheist.io/api/mcp"
+    }
+  ]
+}
