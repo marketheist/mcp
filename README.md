@@ -9,7 +9,7 @@ MarketHeist is a free, public, remote MCP server. Put whole portfolios, a trend-
 - **Endpoint:** `https://api.marketheist.io/api/mcp` (Streamable HTTP)
 - **Auth:** none. No account, no API key.
 - **Tools:** ten, all read-only.
-- **Version:** 1.2.0
+- **Version:** 1.3.0 (your own and nested portfolios now work on the returns, risk, comparison and factor tools)
 - **Docs:** https://marketheist.io/docs/reference/mcp
 - **Privacy:** https://marketheist.io/docs/privacy
 - **Registry name:** `io.marketheist/backtest` in the [official MCP Registry](https://registry.modelcontextprotocol.io)
@@ -100,18 +100,18 @@ Or add it to `~/.gemini/settings.json`:
 
 ## Tools
 
-`static` tools answer from precomputed data bundled with the server: instant, with the month the data runs through and the page to cite.
+`static` answers come from precomputed data bundled with the server: instant, with the month the data runs through and the page to cite. `live` answers are computed from market data for your own portfolio, nested ones included.
 
 | Tool | Kind | What it does |
 |---|---|---|
-| `portfolio_returns` | static | Seasonality by calendar month with t-statistics, calendar-year returns (partial years labelled, S&P 500 beside them) and trailing returns for a model portfolio, strategy or fund. |
-| `portfolio_risk` | static | Deepest drawdowns with recovery times, Ulcer, VaR/CVaR, share of risk vs share of money, independent bets over four periods, near-duplicate holdings and correlations. |
-| `compare_portfolios` | static | Two to four portfolios side by side over their common window: CAGR, volatility, drawdown, Sharpe, Sortino, correlation and calendar years. |
+| `portfolio_returns` | static for ids and funds, live for your own portfolio or any other ticker | Seasonality by calendar month with t-statistics, calendar-year returns (partial years labelled, S&P 500 beside them) and trailing returns for a model portfolio, strategy or fund. |
+| `portfolio_risk` | static for ids, live for your own portfolio | Deepest drawdowns with recovery times, Ulcer, VaR/CVaR, share of risk vs share of money, independent bets over four periods, near-duplicate holdings and correlations. |
+| `compare_portfolios` | static for ids, live for up to two of your own portfolios | Two to four portfolios side by side over their common window: CAGR, volatility, drawdown, Sharpe, Sortino, correlation and calendar years. |
 | `analyze_portfolio` | static for ids, live for custom | Analyzes a lazy portfolio, a ready-made strategy, any ticker mix, or a multi-strategy portfolio whose holdings are whole portfolios, backtested strategies or rotations, with an optional trend filter on the whole book. |
 | `find_guides` | static | Searches 90 research pages (strategies, fund history, trend filters, risk, rule robustness) and returns each page's verdict, headline numbers, data month and link. |
 | `list_portfolios` | static | Lists the 19 model portfolios, 7 canonical strategies and 19 library strategies with holdings, headline numbers and page links. |
 | `fund_history` | static | How far back a fund can be tested, its proxy chain and how closely each stand-in tracked it. |
-| `decompose_factors` | static for ids, live for tickers | Regresses a ticker's or a portfolio's returns on market, size, value, momentum, quality, low-volatility, duration and credit factors. |
+| `decompose_factors` | static for ids, live for tickers and your own portfolio | Regresses a ticker's or a portfolio's returns on market, size, value, momentum, quality, low-volatility, duration and credit factors. |
 | `run_backtest` | live | Backtests one indicator rule on any ticker (daily, weekly or monthly) against buy-and-hold, with a validity block and an overfit check. |
 | `list_indicators` | static | Lists the 12 built-in technical indicators with parameters and default rules. |
 
@@ -127,6 +127,9 @@ Or add it to `~/.gemini/settings.json`:
 8. "Is 60/40 really diversified, and how did All Weather do in 2022?"
 9. "Compare 60/40, All Weather and Golden Butterfly over the same period."
 10. "How far back can I test VXUS?"
+11. "I hold 60% VTI, 20% VXUS and 20% BND. What did that return each calendar year, and how diversified is it?"
+12. "Compare my 70/30 VTI/BND with the 60/40 and All Weather over the same years."
+13. "What is driving the returns of my 50% QQQ, 30% TLT, 20% GLD portfolio?"
 
 ## How the numbers are made
 
