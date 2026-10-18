@@ -1,8 +1,10 @@
 {
   "name": "marketheist",
-  "version": "1.1.2",
-  "description": "Backtest strategies and analyze portfolios, incl. nested multi-strategy portfolios, on real data.",
+  "version": "1.2.0",
+  "description": "Backtest and analyze portfolios, incl. nested multi-strategy ones; cited returns, risk and factors.",
   "mcpServers": {
-    "marketheist": { "httpUrl": "https://api.marketheist.io/api/mcp" }
+    "marketheist": {
+      "httpUrl": "https://api.marketheist.io/api/mcp"
+    }
   }
 }
